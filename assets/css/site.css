@@ -1,0 +1,29 @@
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header{
+	height: 80px;
+}
+
+body{
+	padding-top: 0px !important;//Overide gii css
+}
+
+#yii-debug-toolbar-min{
+	width: 36px !important;
+	opacity: 0.5 !important;
+}
+
+.yii-debug-toolbar-top>.yii-debug-toolbar-block{
+	padding: 2px 4px !important;
+}
+
+.yii-debug-toolbar-top>.yii-debug-toolbar-block>a{
+	font-size: 10px !important;
+}
+.yii-debug-toolbar-top>.yii-debug-toolbar-block>a>.label {
+	font-size: 10px !important;
+	border-radius: 2px !important;
+	padding: 2px !important;
+}
+
+.debug-call-out a.btn{
+	color: #000;
+}
