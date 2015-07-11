@@ -9,7 +9,7 @@ use yii\bootstrap\NavBar;
 
 <header class="main-header">
 
-    <?= Html::a('<span class="logo-mini">'.Yii::$app->params['logo-mini'].'</span><span class="logo-lg">' .Yii::$app->params['logo-large']. '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">'. Yii::$app->getModule('f2ngin')->getParam('logo-mini').'</span><span class="logo-lg">' . Yii::$app->getModule('f2ngin')->getParam('logo-large'). '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top" role="navigation">
 
@@ -23,7 +23,7 @@ use yii\bootstrap\NavBar;
 
                  <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="/admin/img/avatar.png" class="user-image" alt="User Image"/>
+                        <img src="<?=$directoryAsset?>/img/avatar.png" class="user-image" alt="User Image"/>
                         <span class="hidden-xs">Alexander Pierce</span>
                     </a>
                     <ul class="dropdown-menu">

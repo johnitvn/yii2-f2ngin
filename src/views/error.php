@@ -16,10 +16,10 @@ $this->title = $name;
         <h2 class="headline text-info"><i class="fa fa-warning text-yellow"></i></h2>
 
         <div class="error-content">
-            <h3><?= $name ?></h3>
+            <h3><?=$name ?></h3>
 
             <p>
-                <?= nl2br(Html::encode($message)) ?>
+                <?=nl2br(Html::encode($message)) ?>
             </p>
 
             <p>
