@@ -21,7 +21,7 @@ class F2NginAsset extends AssetBundle
 
     public $css = [
         'css/AdminLTE',
-        'css/site'
+        'css/DevModules'
     ];
 
     public $js = [
