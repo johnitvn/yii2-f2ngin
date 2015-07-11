@@ -6,6 +6,10 @@
 
 use yii\helpers\Url;
 
+if(!\Yii::$app->getModule('f2ngin')->enableDebugToolBar){
+    return;
+}
+
 $minJs = <<<EOD
 document.getElementById('yii-debug-toolbar').style.display = 'none';
 document.getElementById('yii-debug-toolbar-min').style.display = 'block';
@@ -25,12 +29,7 @@ EOD;
 $firstPanel = reset($panels);
 $url = $firstPanel->getUrl();
 ?>
-<div id="yii-debug-toolbar" class="yii-debug-toolbar-<?= $position ?> hidden-print">
-    <div class="yii-debug-toolbar-block title">
-        <a href="<?= Url::to(['index']) ?>">
-            <img width="29" height="30" alt="" src="<?= \yii\debug\Module::getYiiLogo() ?>">
-        </a>
-    </div>
+<div id="yii-debug-toolbar" class="yii-debug-toolbar-<?= $position ?> hidden-print">    
     <?php foreach ($panels as $panel): ?>
         <?= $panel->getSummary() ?>
     <?php endforeach; ?>

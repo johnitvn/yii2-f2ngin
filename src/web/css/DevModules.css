@@ -11,14 +11,14 @@ body{
 	opacity: 0.5 !important;
 }
 
-.yii-debug-toolbar-top>.yii-debug-toolbar-block{
+#yii-debug-toolbar>.yii-debug-toolbar-block{
 	padding: 2px 4px !important;
 }
 
-.yii-debug-toolbar-top>.yii-debug-toolbar-block>a{
+#yii-debug-toolbar>.yii-debug-toolbar-block>a{
 	font-size: 10px !important;
 }
-.yii-debug-toolbar-top>.yii-debug-toolbar-block>a>.label {
+#yii-debug-toolbar>.yii-debug-toolbar-block>a>.label {
 	font-size: 10px !important;
 	border-radius: 2px !important;
 	padding: 2px !important;

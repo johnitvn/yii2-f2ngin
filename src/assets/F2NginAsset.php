@@ -17,11 +17,14 @@ class F2NginAsset extends AssetBundle
 {
 
     public $sourcePath = '@f2ngin/web';
-   
+    
+    public $publishOptions = [
+        'forceCopy' => true,
+    ];
 
     public $css = [
         'css/AdminLTE',
-        'css/DevModules'
+        'css/DevModules',
     ];
 
     public $js = [

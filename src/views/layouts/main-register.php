@@ -1,11 +1,11 @@
 <?php
+use backend\assets\AppAsset;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 Yii::$app->getModule('f2ngin')->registerAppAssets($this);
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@f2ngin/web');
 
 ?>
 <?php $this->beginPage() ?>
@@ -18,30 +18,13 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@f2ngin/web');
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="skin-blue sidebar-mini">
+<body class="register-page">
+
 <?php $this->beginBody() ?>
-<div class="wrapper">
 
-    <?= $this->render(
-        'header.php',
-        ['directoryAsset' => $directoryAsset]
-    ) ?>
-
-    <?= $this->render(
-        'left.php',
-        ['directoryAsset' => $directoryAsset]
-    )
-    ?>
-
-    <?= $this->render(
-        'content.php',
-        ['content' => $content, 'directoryAsset' => $directoryAsset]
-    ) ?>
-
-</div>
+    <?= $content ?>
 
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
-

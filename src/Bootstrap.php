@@ -3,7 +3,9 @@ namespace johnitvn\f2ngin;
 
 use Yii;
 use yii\base\Theme;
+use yii\i18n\PhpMessageSource;
 use yii\base\BootstrapInterface;
+
 /**
 * @author John Martin <john.itvn@gmail.com>
 * @since 1.0
@@ -19,24 +21,19 @@ class Bootstrap implements BootstrapInterface
 
         Yii::setAlias("@f2ngin","@vendor/johnitvn/yii2-f2ngin/src");
 
+        if (!isset(Yii::$app->get('i18n')->translations['user*'])) {
+            Yii::$app->get('i18n')->translations['user*'] = [
+                'class'    => PhpMessageSource::className(),
+                'basePath' => __DIR__ . '/messages',
+            ];
+        }
+
         if ($app instanceof \yii\web\Application) {
             $this->bootstrapWebApp($app);
         }else{
             $this->bootstrapConsoleApp($app);
         }
-
-     
-        /*=== Config theme pathmap ===*/
-        // $theme->pathMap=[        	
-        //     "@yii/gii/views/layouts"=>"@f2ngin/views/layouts",
-        //     "@yii/gii/views/default"=>"@f2ngin/views/gii",
-        //     "@yii/debug/views/layouts"=>"@f2ngin/views/layouts",
-        //     "@yii/debug/views/default"=>"@f2ngin/views/debug",
-        // ];
-
-
-
-
+    
     }
 
     private function bootstrapWebApp($app){

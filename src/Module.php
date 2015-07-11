@@ -3,9 +3,14 @@ namespace johnitvn\f2ngin;
 
 use Yii;
 use yii\base\Module as BaseModule; 
+use johnitvn\f2ngin\assets\F2NginAsset;
 
 class Module extends BaseModule
 {
+
+	const VERSION = "1.0.0-Dev";
+
+	public $enableDebugToolBar = true;
 
 	public $controllerNamespace = 'johnitvn\f2ngin\controllers';
 
@@ -35,6 +40,7 @@ class Module extends BaseModule
 	}
 
 	public function registerAppAssets($view){
+		F2NginAsset::register($view); 
 		if($this->assetBundles!==null){
 			if(is_array($this->assetBundles)){
 				foreach ($this->assetBundles as $bundle) {
