@@ -11,9 +11,9 @@
     "minimum-stability": "dev",
     "require": {
         "rmrevin/yii2-fontawesome": "*", 
-		    "johnitvn/yii2-ajaxcrud-assets":"*", 
-        "johnitvn/yii2-settings":"*",
-        "johnitvn/yii2-user-plus":"*"
+		"johnitvn/yii2-ajaxcrud-assets":"2.0.*", 
+        "johnitvn/yii2-settings":"1.0.*",
+        "johnitvn/yii2-user-plus":"1.0.*"
   	},
   	"require-dev": {
         "yiisoft/yii2-debug": "*",
