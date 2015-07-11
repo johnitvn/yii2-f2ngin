@@ -1,0 +1,24 @@
+#!/usr/bin/env php
+<?php
+
+define('ROOT',dirname(dirname(dirname(__DIR__))));
+define('TEMP',__DIR__.'/.temp');
+define('BACKEND_CONFIG_DIR',ROOT.'/backend/config');
+define('FRONTEND_CONFIG_DIR',ROOT.'/frontend/config');
+
+if(!file_exists(BACKEND_CONFIG_DIR.'/f2n-config')&&!mkdir(BACKEND_CONFIG_DIR.'/f2n-config')){
+    echo "Not create directory (".BACKEND_CONFIG_DIR.")\n Please make sure you have permistion to write to config directory.";
+    die();
+}
+
+
+file_put_contents(BACKEND_CONFIG_DIR.'/f2n-config/nav-menu.php',file_get_contents(TEMP.'/nav-menu.php'));
+file_put_contents(BACKEND_CONFIG_DIR.'/f2n-config/params.php',file_get_contents(TEMP.'/params.php'));
+
+$content = file_get_contents(BACKEND_CONFIG_DIR.'/main.php');
+$content = str_replace("common\models\User","johnitvn\userplus\models\User", $content);
+file_put_contents(BACKEND_CONFIG_DIR.'/main.php', $content);
+
+$content = file_get_contents(FRONTEND_CONFIG_DIR.'/main.php');
+$content = str_replace("common\models\User","johnitvn\userplus\models\User", $content);
+file_put_contents(FRONTEND_CONFIG_DIR.'/main.php', $content);

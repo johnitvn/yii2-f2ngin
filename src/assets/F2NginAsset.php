@@ -7,6 +7,7 @@
 
 namespace johnitvn\f2ngin\assets;
 
+use Yii;
 use yii\web\AssetBundle;
 
 /**
@@ -40,16 +41,35 @@ class F2NginAsset extends AssetBundle
 
     public $skin = '_all-skins';
 
+
+
     /**
      * @inheritdoc
      */
     public function init()
     {        
-        if ($this->skin) {
-            if (('_all-skins' !== $this->skin) && (strpos($this->skin, 'skin-') !== 0)) {
-                throw new Exception('Invalid skin specified');
+        if(Yii::$app->user->isGuest){
+
+        }else{
+            $currentUserId = Yii::$app->user->getId();         
+
+            $settings = Yii::$app->get('settings'); 
+            $this->skin = $settings->get('user-'.$currentUserId,'skin'); 
+
+
+            if($this->skin==null){
+                $this->skin = $settings->get('system','default-skins');
+                $this->skin = $this->skin==null?'skin-blue':$this->skin;     
             }
-            $this->css[] = sprintf('css/skins/%s', $this->skin);
+
+
+            if ($this->skin) {
+                if (!in_array($this->skin, F2NginAsset::getAvaibleSkins())) {
+                    //throw new \yii\base\Exception('Invalid skin specified: '.$this->skin);
+                    $this->skin='skin-blue';
+                }
+                $this->css[] = sprintf('css/skins/%s', $this->skin);
+            }
         }
 
         if(YII_ENV!=='dev'){
@@ -69,5 +89,39 @@ class F2NginAsset extends AssetBundle
         }
 
         parent::init();
+    }
+
+    public static function getAvaibleSkins(){
+        return [
+            "skin-blue",
+            "skin-black",
+            "skin-red",
+            "skin-yellow",
+            "skin-purple",
+            "skin-green",
+            "skin-blue-light",
+            "skin-black-light",
+            "skin-red-light",
+            "skin-yellow-light",
+            "skin-purple-light",
+            "skin-green-light"
+        ];
+    }
+
+     public static function getAvaibleSkinLabels(){
+        return [
+            "skin-blue"         => "Blue",
+            "skin-black"        => "Black",
+            "skin-red"          => "Red",
+            "skin-yellow"       => "Yellow",
+            "skin-purple"       => "Purple",
+            "skin-green"        => "Green",
+            "skin-blue-light"   => "Blue Light",
+            "skin-black-light"  => "Black Light",
+            "skin-red-light"    => "Red Light",
+            "skin-yellow-light" => "Yellow Light",
+            "skin-purple-light" => "Purple Light",
+            "skin-green-light"  => "Green Light",
+        ];
     }
 }

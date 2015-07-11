@@ -14,6 +14,7 @@ class Module extends BaseModule
 
 	public $controllerNamespace = 'johnitvn\f2ngin\controllers';
 
+
 	/**
 	* @var string $config the path of f2ngin config directory
 	*/
@@ -50,6 +51,10 @@ class Module extends BaseModule
 				call_user_func($this->assetBundles.'::register',$view);
 			}
 		}
+	}
+
+	public function getAssetSkin(){
+		return Yii::$app->assetManager->getBundle('johnitvn\f2ngin\assets\F2NginAsset')->skin;
 	}
 
 	public function getNavMenuConfig(){

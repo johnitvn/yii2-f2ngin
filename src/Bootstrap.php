@@ -17,8 +17,7 @@ class Bootstrap implements BootstrapInterface
      *
      * @param Application $app the application currently running
      */
-    public function bootstrap($app){
-
+    public function bootstrap($app){  
         Yii::setAlias("@f2ngin","@vendor/johnitvn/yii2-f2ngin/src");
 
         if (!isset(Yii::$app->get('i18n')->translations['user*'])) {
@@ -32,8 +31,7 @@ class Bootstrap implements BootstrapInterface
             $this->bootstrapWebApp($app);
         }else{
             $this->bootstrapConsoleApp($app);
-        }
-    
+        }    
     }
 
     private function bootstrapWebApp($app){
@@ -43,7 +41,7 @@ class Bootstrap implements BootstrapInterface
         $app->errorHandler->errorAction = 'f2ngin/common/error';
 
         $app->set('settings',[
-            'class'=>'johnitvn\settings\Settings'
+            'class'=>'johnitvn\settings\components\Settings'
         ]);
         $app->setModules([
             'gridview'=>'kartik\grid\Module',

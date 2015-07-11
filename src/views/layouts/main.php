@@ -4,8 +4,11 @@ use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-Yii::$app->getModule('f2ngin')->registerAppAssets($this);
+$f2ngin = Yii::$app->getModule('f2ngin');
+$f2ngin->registerAppAssets($this);
+$skin = $f2ngin->getAssetSkin();
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@f2ngin/web');
+
 
 ?>
 <?php $this->beginPage() ?>
@@ -18,7 +21,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@f2ngin/web');
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="skin-blue sidebar-mini">
+<body class="<?=$skin?> sidebar-mini">
 <?php $this->beginBody() ?>
 <div class="wrapper">
 

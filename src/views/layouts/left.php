@@ -1,6 +1,5 @@
 <?php
-use backend\widgets\Nav;
-
+use johnitvn\f2ngin\widgets\Nav;
 ?>
 <aside class="main-sidebar">
     <section class="sidebar">   
