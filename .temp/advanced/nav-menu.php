@@ -15,7 +15,12 @@ return[
             'icon'=>'fa-user',
             'visible'=>Yii::$app->user->identity->isSuperuser(),
         ], 
-
+        [
+            'label'=>'Settings manager',
+            'url'=>['/settings/manager'],
+            'icon'=>'fa-gear',
+            'visible'=>Yii::$app->getModule('f2ngin')->enableGuiSettingManager,
+        ], 
         /* Global Menu */
 
             /*

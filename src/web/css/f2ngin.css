@@ -27,3 +27,7 @@ body{
 .debug-call-out a.btn{
 	color: #000;
 }
+
+body.error-guest{
+	padding-top: 100px !important;
+}

@@ -12,13 +12,6 @@ if(!file_exists(BACKEND_CONFIG_DIR.'/f2n-config')&&!mkdir(BACKEND_CONFIG_DIR.'/f
 }
 
 
-file_put_contents(BACKEND_CONFIG_DIR.'/f2n-config/nav-menu.php',file_get_contents(TEMP.'/nav-menu.php'));
-file_put_contents(BACKEND_CONFIG_DIR.'/f2n-config/params.php',file_get_contents(TEMP.'/params.php'));
-
-$content = file_get_contents(BACKEND_CONFIG_DIR.'/main.php');
-$content = str_replace("common\models\User","johnitvn\userplus\models\User", $content);
-file_put_contents(BACKEND_CONFIG_DIR.'/main.php', $content);
-
-$content = file_get_contents(FRONTEND_CONFIG_DIR.'/main.php');
-$content = str_replace("common\models\User","johnitvn\userplus\models\User", $content);
-file_put_contents(FRONTEND_CONFIG_DIR.'/main.php', $content);
+file_put_contents(BACKEND_CONFIG_DIR.'/f2n-config/nav-menu.php',file_get_contents(TEMP.'/advanced/nav-menu.php'));
+file_put_contents(BACKEND_CONFIG_DIR.'/f2n-config/params.php',file_get_contents(TEMP.'/advanced/params.php'));
+file_put_contents(BACKEND_CONFIG_DIR.'/main.php',file_get_contents(TEMP.'/advanced/main.php'));

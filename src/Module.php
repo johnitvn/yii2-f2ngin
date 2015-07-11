@@ -10,9 +10,15 @@ class Module extends BaseModule
 
 	const VERSION = "1.0.0-Dev";
 
+	public $controllerNamespace = 'johnitvn\f2ngin\controllers';
+
 	public $enableDebugToolBar = true;
 
-	public $controllerNamespace = 'johnitvn\f2ngin\controllers';
+	public $enableGuiSettingManager = true;
+
+	public $userplus;
+
+	public $user;
 
 
 	/**
