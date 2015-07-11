@@ -13,7 +13,7 @@
         "rmrevin/yii2-fontawesome": "*", 
 		"johnitvn/yii2-ajaxcrud-assets":"2.0.*", 
         "johnitvn/yii2-settings":"1.0.*",
-        "johnitvn/yii2-user-plus":"1.0.*"
+        "johnitvn/yii2-user-plus":"*"
   	},
   	"require-dev": {
         "yiisoft/yii2-debug": "*",
