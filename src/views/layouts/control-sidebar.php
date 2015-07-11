@@ -4,7 +4,9 @@ use johnitvn\f2ngin\models\AdministratorConfigForm;
 
 $adminConfigView = '@f2ngin/views/control-sidebar/administrator-config.php';
 $userSettingView = '@f2ngin/views/control-sidebar/user-settings.php';
-
+if(Yii::$app->user->identity==null){
+    return;
+}
 echo ControlSidebarTabs::widget([   
     'items' => [        
         [

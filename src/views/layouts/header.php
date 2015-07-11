@@ -52,7 +52,7 @@ use yii\bootstrap\NavBar;
                               <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                              <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                              <a href="/admin/f2ngin/common/logout" data-method="post" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                           </li>
                     </ul>

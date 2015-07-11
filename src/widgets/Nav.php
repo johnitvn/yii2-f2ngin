@@ -12,7 +12,10 @@ class Nav extends Widget
 
     public $items;
    
-    public function run(){        
+    public function run(){   
+        if($this->items==null||!is_array($this->items)){
+            return '';
+        }     
         $itemContent = '';
         foreach ($this->items as $item) {
         	if(!is_array($item)){
